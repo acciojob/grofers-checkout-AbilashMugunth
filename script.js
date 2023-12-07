@@ -1,26 +1,17 @@
 let table = document.querySelector("table");
 let prices = document.querySelectorAll(".price");
+console.log(prices);
 
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+let total = Array.from(prices)
+  .map((price) => Number(price.innerText))
+  .reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 
-const getSum = () => {
-	let total = Array.from(prices)
-	  .map((price) => Number(price.innerText))
-	  .reduce((acc, curr) => {
-	    return acc + curr;
-	  }, 0);
-	
-	let tr = document.createElement("tr");
-	let td = document.createElement("td");
-	td.innerText = total;
-	td.colSpan = 2;
-	
-	tr.appendChild(td);
-	table.appendChild(tr);
-};
+let tr = document.createElement("tr");
+let td = document.createElement("td");
+td.innerText = total;
+td.colSpan = 2;
 
-getSumBtn.addEventListener("click", getSum);
-
-
+tr.appendChild(td);
+table.appendChild(tr);
