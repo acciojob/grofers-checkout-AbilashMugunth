@@ -15,6 +15,7 @@ const getSum = () => {
 	let tr = document.createElement("tr");
 	let td = document.createElement("td");
 	td.innerText = total;
+	td.colSpan = 2;
 	
 	tr.appendChild(td);
 	table.appendChild(tr);
