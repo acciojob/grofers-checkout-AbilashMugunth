@@ -1,17 +1,21 @@
-let table = document.querySelector("table");
-let prices = document.querySelectorAll(".price");
-console.log(prices);
+const getSumBtn = document.createElement("button");
+getSumBtn.append("Get Total Price");
+document.body.appendChild(getSumBtn);
+const table = document.querySelector("table");
 
-let total = Array.from(prices)
-  .map((price) => Number(price.innerText))
-  .reduce((acc, curr) => {
-    return acc + curr;
-  }, 0);
+function getSum() {
+  const price = document.querySelectorAll('[data-ns-test="price"]');
+  const tr = document.createElement("tr");
+  const td1 = document.createElement("td");
+  td1.setAttribute("data-ns-test", "grandTotal");
+  // const td2 =  document.createElement("td");
+  let sum = 0;
+  for (let i = 0; i < price.length; i++) {
+    sum = sum + parseInt(price[i].innerText);
+  }
+  td1.innerText = sum;
+  tr.appendChild(td1);
+  table.appendChild(tr);
+}
 
-let tr = document.createElement("tr");
-let td = document.createElement("td");
-td.innerText = total;
-td.colSpan = 2;
-
-tr.appendChild(td);
-table.appendChild(tr);
+getSumBtn.addEventListener("click", getSum);
