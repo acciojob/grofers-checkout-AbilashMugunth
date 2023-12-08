@@ -12,12 +12,13 @@ function getSum() {
 	  }, 0);
 	
 	let tr = document.createElement("tr");
-	let td = document.createElement("td");
-	td.innerText = "total";
+	// let td = document.createElement("td");
+	// td.innerText = "total";
 	let td2 = document.createElement("td");
 	td2.innerText = total;
 	
-	tr.append(td, td2);
+	// tr.append(td, td2);
+	tr.append(td2);
 	table.appendChild(tr);
 }
 
