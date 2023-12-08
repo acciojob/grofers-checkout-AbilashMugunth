@@ -15,6 +15,7 @@ function getSum() {
 	// let td = document.createElement("td");
 	// td.innerText = "total";
 	let td2 = document.createElement("td");
+	td2.colSpan=2;
 	td2.innerText = total;
 	
 	// tr.append(td, td2);
